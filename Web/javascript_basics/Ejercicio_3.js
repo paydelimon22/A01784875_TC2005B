@@ -25,3 +25,4 @@ const arregloOriginal2 = [9, 4, 2, 13, 7];
 console.log("Arreglo Original:", arregloOriginal2); 
 const nuevoArreglo2 = invertirArregloNuevo(arregloOriginal2);
 console.log("Nuevo arreglo invertido:", nuevoArreglo2); 
+
