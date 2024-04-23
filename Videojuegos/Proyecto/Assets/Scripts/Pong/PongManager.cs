@@ -34,6 +34,8 @@ public class PongManager : MonoBehaviour
         public void Reset(){
         if(ball != null){
             Destroy(ball);
+            pointsLeft = 0;
+            pointsRight = 0;
             InitGame();
         }
     }
@@ -53,12 +55,12 @@ public class PongManager : MonoBehaviour
     public void Score(string side){
         if(side == "left"){
             pointsLeft ++;
-            scoreLeft.text = pointsLeft.ToString();
+            scoreRight.text = pointsLeft.ToString();
             InitGame();
         }
         else if (side == "right"){
             pointsRight++;
-            scoreRight.text = pointsRight.ToString();
+            scoreLeft.text = pointsRight.ToString();
             InitGame();
         }
     }
