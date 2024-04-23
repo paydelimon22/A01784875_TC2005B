@@ -2,12 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using TMPro;
+
 public class PongManager : MonoBehaviour
 {
 
     [SerializeField] GameObject ball;
     [SerializeField] GameObject ballPrefab;
     [SerializeField] float speed;
+
+    [SerializeField] TMP_Text scoreLeft;
+    [SerializeField] TMP_Text scoreRight;
 
     public int pointsLeft;
     public int pointsRight;
@@ -22,6 +27,12 @@ public class PongManager : MonoBehaviour
     void Update()
     {
         if(Input.GetKey(KeyCode.R) && ball != null){
+            Reset();
+        }
+    }
+
+        public void Reset(){
+        if(ball != null){
             Destroy(ball);
             InitGame();
         }
@@ -42,10 +53,12 @@ public class PongManager : MonoBehaviour
     public void Score(string side){
         if(side == "left"){
             pointsLeft ++;
+            scoreLeft.text = pointsLeft.ToString();
             InitGame();
         }
         else if (side == "right"){
             pointsRight++;
+            scoreRight.text = pointsRight.ToString();
             InitGame();
         }
     }
