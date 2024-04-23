@@ -1,0 +1,28 @@
+{
+    "cards":[
+        {
+            "id": 1,
+            "name": "Wendy",
+            "ability1": "Bees",
+            "ability2": "Frog",
+            "health": 10,
+            "role": "camper"
+        },
+        {
+            "id": 2,
+            "name": "Brick",
+            "ability1": "Slingshot",
+            "ability2": "Stink Bomb",
+            "health": 12,
+            "role": "camper"
+        },
+        {
+            "id": 3,
+            "name": "Coach",
+            "ability1": "Bicep Curl",
+            "ability2": "Inspire",
+            "health": 20,
+            "role": "staff"
+        }
+    ]
+}
