@@ -31,11 +31,9 @@ public class PongManager : MonoBehaviour
         }
     }
 
-        public void Reset(){
+    public void Reset(){
         if(ball != null){
             Destroy(ball);
-            pointsLeft = 0;
-            pointsRight = 0;
             InitGame();
         }
     }
@@ -55,12 +53,12 @@ public class PongManager : MonoBehaviour
     public void Score(string side){
         if(side == "left"){
             pointsLeft ++;
-            scoreRight.text = pointsLeft.ToString();
+            scoreLeft.text = pointsLeft.ToString();
             InitGame();
         }
         else if (side == "right"){
             pointsRight++;
-            scoreLeft.text = pointsRight.ToString();
+            scoreRight.text = pointsRight.ToString();
             InitGame();
         }
     }
