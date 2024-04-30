@@ -6,7 +6,9 @@ public class SimonGameManager : MonoBehaviour
 {
     public List<int> gameSequence;
     public List<int> playerSequence;
-    [SerializeField] int keyInt;
+    public int Score;
+    bool gameOver;
+    bool isPlaying;
     
 
     // Start is called before the first frame update
@@ -21,9 +23,15 @@ public class SimonGameManager : MonoBehaviour
         
     }
 
-    public void UpdateSequence([SerializeField]int btn)
+    public void UpdatePlayerSequence([SerializeField]int btn)
     {
         playerSequence.Add(btn);
+    }
+
+    public void UpdateGameSequence()
+    {
+        int randAdd = Random.Range(1, 9);
+        gameSequence.Add(randAdd);
     }
 
     public void playSound([SerializeField] AudioSource key){

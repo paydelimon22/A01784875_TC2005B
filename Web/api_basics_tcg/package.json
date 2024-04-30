@@ -1,0 +1,20 @@
+{
+  "name": "api_basics_tcg",
+  "version": "1.0.0",
+  "description": "Actividad en clase: API basico para cartas",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "A01784875_TC2005B"
+  },
+  "author": "Valentina Gonzalez",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
