@@ -17,24 +17,27 @@ public class SimonController : MonoBehaviour
     [SerializeField] int level;
     [SerializeField] bool playerTurn = false;
 
-    [SerializeField]int counter;
+    [SerializeField]int counter = 0;
+
+    [SerializeField] int numButtons;
+    [SerializeField] GameObject ButtonPrefab;
+    [SerializeField] Transform ButtonParent;
+    [SerializeField] GameObject GameOverTxt;
+
 
     // Start is called before the first frame update
     void Start()
     {
         PrepareButtons();
-        StartCoroutine(PlaySequence());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void PrepareButtons(){
-        for(int i = 0; i <buttons.Count; i++){
+        for(int i = 0; i <numButtons; i++){
             int index = i;
+            GameObject newButton = Instantiate(ButtonPrefab, ButtonParent);
+            newButton.GetComponent<Image>().color = Color.HSVToRGB((float)index/numButtons,1,1);
+            newButton.GetComponent<SimonBtn>().Init(index);
+            buttons.Add(newButton.GetComponent<SimonBtn>());
             buttons[i].gameObject.GetComponent<Button>().onClick.AddListener(() => ButtonPressed(index));
         }
         AddToSequence();
@@ -42,14 +45,13 @@ public class SimonController : MonoBehaviour
 
     public void ButtonPressed(int index){
         if(playerTurn){
-            if(index == sequence[counter]){
-                counter ++;
+            if(index == sequence[counter++]){
+                buttons[index].Highlight();
                 if(counter == sequence.Count){
+                    playerTurn = false;
                     level++;
                     counter = 0;
-                    playerTurn = false;
                     AddToSequence();
-                    StartCoroutine(PlaySequence());
                 }
         }
         else{
@@ -59,7 +61,8 @@ public class SimonController : MonoBehaviour
     }
 
     void AddToSequence(){
-        sequence.Add(Random.Range(0, buttons.Count));
+        sequence.Add(Random.Range(0, numButtons));
+        StartCoroutine(PlaySequence());
     }
 
     IEnumerator PlaySequence(){
