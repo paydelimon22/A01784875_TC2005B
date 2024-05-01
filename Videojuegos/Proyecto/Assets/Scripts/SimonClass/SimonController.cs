@@ -4,6 +4,7 @@ Game mamanger Script
 
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,10 +25,13 @@ public class SimonController : MonoBehaviour
     [SerializeField] Transform ButtonParent;
     [SerializeField] GameObject GameOverTxt;
 
+    [SerializeField] TMP_Text score;
+    [SerializeField] TMP_Text mainText;
 
     // Start is called before the first frame update
     void Start()
     {
+        mainText.text = "Simon Says";
         PrepareButtons();
     }
 
@@ -50,12 +54,14 @@ public class SimonController : MonoBehaviour
                 if(counter == sequence.Count){
                     playerTurn = false;
                     level++;
+                    score.text = ("Score: " + level.ToString());
                     counter = 0;
                     AddToSequence();
                 }
         }
         else{
             Debug.Log("Game Over!");
+            mainText.text = "Game Over!";
             }
         }
     }
@@ -72,5 +78,21 @@ public class SimonController : MonoBehaviour
             yield return new WaitForSeconds(delay);
         }
         playerTurn = true;
+    }
+
+    void DeleteButtons(){
+        for(int i = 0; i <numButtons; i++){
+            Destroy(buttons[i]);
+        }
+
+    }
+
+    public void Reset(){
+        level = 0;
+        sequence.Clear();
+        counter = 0;
+        mainText.text = "Simon Says";
+        score.text = "Score: 0" ;
+        AddToSequence();
     }
 }
