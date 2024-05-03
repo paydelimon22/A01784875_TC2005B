@@ -15,10 +15,11 @@ public class SimonController : MonoBehaviour
     [SerializeField] List<SimonBtn> buttons;
     [SerializeField] List<int> sequence;
     [SerializeField] float delay;
-    [SerializeField] int level;
+    [SerializeField] int points;
     [SerializeField] bool playerTurn = false;
 
     [SerializeField]int counter = 0;
+    [SerializeField] int level;
 
     [SerializeField] int numButtons;
     [SerializeField] GameObject ButtonPrefab;
@@ -26,12 +27,15 @@ public class SimonController : MonoBehaviour
     [SerializeField] GameObject GameOverTxt;
 
     [SerializeField] TMP_Text score;
+    [SerializeField] TMP_Text levelTxt;
     [SerializeField] TMP_Text mainText;
 
     // Start is called before the first frame update
     void Start()
     {
         mainText.text = "Simon Says";
+        numButtons = 4;
+        level = 1;
         PrepareButtons();
     }
 
@@ -53,10 +57,15 @@ public class SimonController : MonoBehaviour
                 buttons[index].Highlight();
                 if(counter == sequence.Count){
                     playerTurn = false;
-                    level++;
-                    score.text = ("Score: " + level.ToString());
+                    points++;
+                    score.text = ("Score: " + points.ToString());
+                    levelTxt.text = ("Level: " + level.ToString());
                     counter = 0;
+                    if(points == numButtons && numButtons <= 8){
+                        NewLevel();
+                    }
                     AddToSequence();
+                    
                 }
         }
         else{
@@ -80,19 +89,39 @@ public class SimonController : MonoBehaviour
         playerTurn = true;
     }
 
-    void DeleteButtons(){
-        for(int i = 0; i <numButtons; i++){
-            Destroy(buttons[i]);
-        }
 
+    void NewLevel(){
+        DeleteButtons();
+        sequence.Clear();
+
+        points = 0;
+        ++level;
+        counter = 0;
+        ++numButtons;
+        PrepareButtons();
     }
 
+    void DeleteButtons(){
+    for(int i = 0; i < buttons.Count; i++){
+       buttons[i].DestroyBtn();
+    }
+    buttons.Clear();
+    
+}
+
     public void Reset(){
-        level = 0;
+        playerTurn = false;
+        DeleteButtons();
         sequence.Clear();
+        
+        points = 0;
+        level = 0;
         counter = 0;
         mainText.text = "Simon Says";
         score.text = "Score: 0" ;
-        AddToSequence();
+        levelTxt.text = "Level: 1" ;
+        numButtons = 4;
+        PrepareButtons();
+
     }
 }

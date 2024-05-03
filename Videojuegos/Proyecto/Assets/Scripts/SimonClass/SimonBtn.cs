@@ -31,6 +31,10 @@ public class SimonBtn : MonoBehaviour
 
    }
 
+   public void DestroyBtn(){
+        Destroy(gameObject);
+   }
+   
    IEnumerator ChangeColor(){
     GetComponent <Image>().color = Color.white;
     yield return new WaitForSeconds(delay);
