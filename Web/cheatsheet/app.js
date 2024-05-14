@@ -4,6 +4,7 @@ import express from 'express';
 import fs from "fs";
 
 const app = express();
+
 app.use(express.static("public"));
 
 const port = 5500;

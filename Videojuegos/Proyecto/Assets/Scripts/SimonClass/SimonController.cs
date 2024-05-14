@@ -30,6 +30,33 @@ public class SimonController : MonoBehaviour
     [SerializeField] TMP_Text levelTxt;
     [SerializeField] TMP_Text mainText;
 
+        // Fake JSON string to simulate the data comming from the API
+    public string apiData = @"
+    {
+        ""buttons"": [
+            {
+                ""id"": 0,
+                ""r"": 1.0,
+                ""g"": 0.0,
+                ""b"": 0.5
+            },
+            {
+                ""id"": 1,
+                ""r"": 0.0,
+                ""g"": 0.8,
+                ""b"": 0.8
+            },
+            {
+                ""id"": 2,
+                ""r"": 0.7,
+                ""g"": 0.9,
+                ""b"": 0.1
+            }
+        ]
+    }
+    ";
+
+
     // Start is called before the first frame update
     void Start()
     {
