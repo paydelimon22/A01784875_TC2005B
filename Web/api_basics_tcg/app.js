@@ -1,13 +1,19 @@
 'use strict';
 
 import express from 'express';
+import fs from "fs";
 
 const app = express();
+app.use(express.static("public"));
 
 const port = 5000;
 
 app.use(express.json());
 
+app.get("/",(req, res) =>{
+    const file = fs.readFileSync("public/html/hello.html","utf8");
+    res.status(200).send(file);
+})
 
 let card_list = [];
 

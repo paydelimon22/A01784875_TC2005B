@@ -740,7 +740,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 650, y: 300}
+  m_SizeDelta: {x: 500, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1407711256
 MonoBehaviour:
@@ -852,7 +852,6 @@ MonoBehaviour:
   buttons: []
   sequence: 
   delay: 0.5
-  level_delay: 0.3
   points: 0
   playerTurn: 0
   counter: 0
