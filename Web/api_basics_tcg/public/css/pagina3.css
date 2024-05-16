@@ -1,0 +1,46 @@
+*{
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+h1{
+    color:whitesmoke;
+    margin: 10px;
+    padding: 10px;
+}
+
+a{
+    margin: 10px;
+    padding: 10px;
+    color: darkseagreen;
+}
+
+body{
+    background-color: #3A2449; ;
+}
+
+.div_style{
+    margin: 20px;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+#css_cheat_sheet{
+    background-color: #58386e;
+    margin: 20px;
+    padding: 10px;
+    color:#747C92;
+    
+}
+
+#button_style{
+    background-color: #2e0d43;
+    color:#747C92;
+}
+
+#button_style button{
+    font-size: 1.5em;
+    border-radius: 10px;
+    background-color: #372772;
+    color: whitesmoke;
+}
+
