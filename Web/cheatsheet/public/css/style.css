@@ -1,0 +1,42 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    /*border: 1px solid black;*/
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+p{
+    color:#789c63;
+}
+
+html{
+    background-color: #CAE7B9;
+}
+
+.Header{
+    text-align: center;
+    color: #EB9486;
+
+}
+
+h1{
+    font-size: 3em;
+}
+
+a{
+    color: #7E7F9A;
+}
+
+Elements{
+    
+}
+
+.singleElement{
+    background-color: #d9f5c9;
+    color: #EB9486;
+}
+
+.singleElement h3{
+    color: #cf7466;
+}
