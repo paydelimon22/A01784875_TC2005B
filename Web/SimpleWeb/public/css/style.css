@@ -36,23 +36,31 @@ nav{
 }
 
 .ImageContainers{
-    display:flex;
+    display: flex;
     flex-direction: row;
-    font-size: 0.5em;
     align-items: center;
     justify-content: center;
+    margin: 20px 0;
 }
 
 .LogoContainer{
-    margin-left: 50px;
-    margin-right: 50px;
+    margin: 0 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
+}
+
+.LogoContainer img{
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
 }
 
 .LogoContainer p{
     display: inline;
+    size: 10px;
+    color: grey;
 }
 
 a{
@@ -77,5 +85,5 @@ button{
 }
 
 img{
-    width: 100px;
+    display: block;
 }
